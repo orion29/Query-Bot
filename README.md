@@ -40,6 +40,11 @@ This repository integrates LangGraph with a custom data science workflow for sch
     pip install -r requirements.txt
     ```
 
+- Set up environment variables for API keys:
+    ```bash
+    echo "GOOGLE_API_KEY=your_api_key_here" > .env
+    ```
+
 ### 2. Running the Workflow:
 
 #### If you want to run it on the terminal:
