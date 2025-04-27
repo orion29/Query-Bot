@@ -1,0 +1,6 @@
+column_name,column_description,typical_values,table_name,table_description
+name,Name of the person,,resource_table,"Table with all the resources present in the office, their salaries and their department"
+salary,Annual salary given to the person in lakh per annum,,resource_table,"Table with all the resources present in the office, their salaries and their department"
+department,name of the department where the person belongs to,"electronics, communication, finance, hr",resource_table,"Table with all the resources present in the office, their salaries and their department"
+department,name of the department in the organization,"electronics, communication, finance, hr",department_table,Table with all the departments and their average salaries
+average_salary,Average salary provided to all the people in the department,,department_table,Table with all the departments and their average salaries

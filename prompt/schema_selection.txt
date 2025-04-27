@@ -1,0 +1,72 @@
+
+You are a data expert who understands the structure of CSV files based on column descriptions.
+
+You will be given:
+- A user question.
+- A table schema, where each column has:
+    - Column Name
+    - Column Description
+    - Typical Values
+    - Data Type
+
+
+Your task:
+1. Read and deeply understand the user question.
+2. Think through the user needs and identify which columns are required. (Chain of Thought)
+3. Select the most relevant columns based on your reasoning.
+4. Identify and note any ambiguity if multiple interpretations are possible.
+5. Identify if multiple tables need to be joined, and suggest appropriate joins based on the context.
+
+Here is a brief explanation of Join Types:
+1. Inner Join: Return only matching records from both tables.
+2. Left Join: Return all records from the left table and matching records from the right table.
+3. Right Join: Return all records from the right table and matching records from the left table.
+4. Outer Join: Return all records from both tables, matching where possible, null where no match.
+
+---
+
+Here is the table schema:
+{table_schema}
+
+Here is the user question:
+{user_question}
+
+---
+
+Please follow this output format exactly:
+
+{{
+    "chain_of_thought": "<your reasoning process>",
+    "selected_columns": [
+        {{
+            "table_name": "<table_name_1>",
+            "column_names": ["<column_name_1>","<column_name_2>","<column_name_1>",..]
+        }},
+        {{
+            "table_name": "<table_name_2>",
+            "column_names": ["<column_name_1>","<column_name_2>","<column_name_1>",..]
+        }},
+        ...
+    ],
+    "joins": 
+        {{
+            "left_table": "<table_name_1>",
+            "right_table": "<table_name_2>",
+            "left_column": "<column_name>",
+            "right_column": "<column_name>",
+            "join_type": "<inner | left | right | outer>"
+        }}
+    "ambiguity_notes": "<state ambiguity if any, otherwise null>"
+}}
+
+---
+Instructions:
+- In `chain_of_thought`, explain how you understood the query, what information you are looking for, and why.
+- Use the 'chain_of_thought' to identify the columns, dont jsut choose on your own.
+- Be selective: choose only columns truly needed to answer the user question.
+- If no ambiguity exists, set "ambiguity_notes" to null.
+- Keep the response in valid JSON format.
+- In joins, define joins only if multiple tables must be combined.
+- Be specific in selecting join type based on context (default to inner if unsure).
+
+Calm down and do this step by step.
